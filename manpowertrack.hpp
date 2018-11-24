@@ -40,5 +40,18 @@ CONTRACT manpowertrack : public contract {
 
     attendance(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
+    add(name user);
+    remove(name user);
+    login(name user);
+    logout(name user);
 
+    attendance_report();
+    exception_report();
+
+  ACTION add(name username);
+  ACTION remove(name username);
+  ACTION login(name username);
+  ACTION logout(name username);
+  ACTION attendance_report();
+  ACTION exception_report();
 };
