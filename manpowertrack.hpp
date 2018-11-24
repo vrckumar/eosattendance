@@ -29,7 +29,7 @@ CONTRACT manpowertrac : public contract {
       uint32_t        login_time = 1;
       uint32_t        logout_time = 1;
 
-      auto primary_key() const { return key; }
+      auto primary_key() const { return name.value; }
     };
 
    typedef eosio::multi_index<"tracker"_n, tracker> attendance_tracker;
@@ -37,7 +37,7 @@ CONTRACT manpowertrac : public contract {
     people_registry _registry;
 
     attendance_tracker _tracker;
-
+    uint64_t _tracker_size=0;
 
   public:
     using contract::contract;
@@ -47,8 +47,8 @@ CONTRACT manpowertrac : public contract {
      {}
 
   ACTION add(name username,string firstName,string lastName);
-  // ACTION login(name username);
-  // ACTION logout(name username);
+  ACTION login(name username);
+  ACTION logout(name username);
   // ACTION attendance_report();
   // ACTION exception_report();
 };
