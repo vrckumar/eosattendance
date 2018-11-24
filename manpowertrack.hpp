@@ -2,7 +2,7 @@
 
 using namespace eosio;
 using namespace std;
-CONTRACT manpowertrack : public contract {
+CONTRACT manpowertrac : public contract {
 
   private:
 
@@ -11,6 +11,7 @@ CONTRACT manpowertrack : public contract {
       LOGGED_OUT   = 1
     };
 
+    
     TABLE people {
       name    name;
       string first_name;
@@ -20,7 +21,8 @@ CONTRACT manpowertrack : public contract {
     };
 
     typedef multi_index<"people"_n, people> people_registry;
-
+    
+    
     TABLE tracker {
       name    name;
       uint64_t        key = 1;
@@ -39,7 +41,7 @@ CONTRACT manpowertrack : public contract {
 
   public:
     using contract::contract;
-    manpowertrack(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds)
+    manpowertrac(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds)
     ,_registry(code, code.value)
     ,_tracker(code, code.value)
      {}

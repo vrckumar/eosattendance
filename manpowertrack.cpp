@@ -1,6 +1,7 @@
 #include "manpowertrack.hpp"
 
-void manpowertrack::add(name user,string firstName,string lastName) {
+[[eosio::action]]
+void manpowertrac::add(name user,string firstName,string lastName) {
     auto iterator = _registry.find(user.value);
     if( iterator == _registry.end() )
     {
@@ -22,4 +23,4 @@ void manpowertrack::add(name user,string firstName,string lastName) {
 }
 
 
-EOSIO_DISPATCH(manpowertrack, (add))
+EOSIO_DISPATCH(manpowertrac, (add))
