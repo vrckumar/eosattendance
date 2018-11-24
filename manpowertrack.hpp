@@ -40,8 +40,7 @@ CONTRACT manpowertrack : public contract {
 
     attendance(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
-    add(name user);
-    remove(name user);
+    add(name user,string firstName,string lastName);
     login(name user);
     logout(name user);
 
@@ -49,7 +48,6 @@ CONTRACT manpowertrack : public contract {
     exception_report();
 
   ACTION add(name username);
-  ACTION remove(name username);
   ACTION login(name username);
   ACTION logout(name username);
   ACTION attendance_report();
