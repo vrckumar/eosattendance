@@ -2,3 +2,7 @@ manpowertrack.abi
 manpowertrack.wasm
 manpowertrac.wasm
 manpowertrac.abi
+frontend/node_modules/*
+frontend/src/*
+frontend/public/*
+frontend/.env
