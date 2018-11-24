@@ -1,4 +1,9 @@
 // import { Api, JsonRpc, RpcError, JsSignatureProvider } from 'eosjs';
+const express = require('express');
+
+const app = express();
+
+app.use(express.static('./'));
 
 const { Api, JsonRpc, RpcError, JsSignatureProvider } = require('eosjs');
 
@@ -28,6 +33,14 @@ async function fetchPeople() {
         "lower_bound": userName,
       });
       console.log(result);
+      return result;
   }
 
-  fetchPeople();
+app.get("/getRegistry",(req,res) => {
+    fetchPeople().then(
+        result => res.send(result), // shows "done!" after 1 second
+        error => console.log(error) // doesn't run
+      );
+})
+
+app.listen(8000);
