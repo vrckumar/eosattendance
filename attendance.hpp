@@ -35,11 +35,10 @@ CONTRACT attendance : public contract {
 
     attendance_tracker _tracker;
 
-    
 
   public:
 
-    
+    attendance(name receiver, name code,  datastream<const char*> ds): contract(receiver, code, ds) {}
 
 
 };
