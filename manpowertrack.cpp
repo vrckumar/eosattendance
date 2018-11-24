@@ -5,7 +5,7 @@ void manpowertrack::add(name user,string firstName,string lastName) {
     if( iterator == _registry.end() )
     {
       _registry.emplace(user, [&]( auto& row ) {
-       row.key = user;
+       row.name = user;
        row.first_name = firstName;
        row.last_name = lastName;
 
@@ -13,8 +13,8 @@ void manpowertrack::add(name user,string firstName,string lastName) {
     }
     else {
       std::string changes;
-      addresses.modify(iterator, user, [&]( auto& row ) {
-        row.key = user;
+      _registry.modify(iterator, user, [&]( auto& row ) {
+        row.name = user;
         row.first_name = firstName;
         row.last_name = lastName;
       });
@@ -22,4 +22,4 @@ void manpowertrack::add(name user,string firstName,string lastName) {
 }
 
 
-EOSIO_DISPATCH(manpowertrack, (add)(login)(logout)(attendance_report)(exception_report))
+EOSIO_DISPATCH(manpowertrack, (add))
