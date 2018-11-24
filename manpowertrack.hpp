@@ -1,7 +1,7 @@
 #include <eosiolib/eosio.hpp>
 
 using namespace eosio;
-CONTRACT attendance : public contract {
+CONTRACT manpowertrack : public contract {
 
   private:
 
